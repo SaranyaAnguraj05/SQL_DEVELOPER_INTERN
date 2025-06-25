@@ -1,5 +1,34 @@
 # SQL_DEVELOPER_INTERN
 the tasks  given daily will be uploaded in this git repository.
+# Date:24/06/2025 Day:Tuesday TASK-2: Data Insertion and Handling Nulls
+Objective: Practice inserting, updating, and deleting data.
+Tools :DB Fiddle / SQLiteStudio
+Deliverables: SQL file with INSERT, UPDATE, DELETE statements
+# INSERT QUERY:
+# Add a new product with some missing optional fields handled by NULL:
+INSERT INTO products (product_id, name, description, price, stock_quantity, category)
+VALUES (103, 'Bluetooth Keyboard', NULL, 799.00, 50, 'Electronics');
+![image](https://github.com/user-attachments/assets/8affcb2b-ba48-4e9a-8b82-4dc7aac410b5)
+
+# Add a new customer with optional phone number missing:
+INSERT INTO customers (customer_id, name, email, password_hash, phone, address)
+VALUES (2, 'David Lee', 'david@example.com', '$2y$10$newhash', NULL, '789 Hill St, Bangalore, KA');
+![image](https://github.com/user-attachments/assets/f8919d75-e3f1-4bf2-898b-27ae419aa97a)
+
+#  Handle Missing Values Using NULL or DEFAULT
+ALTER TABLE orders MODIFY status VARCHAR(50) DEFAULT 'Pending';
+INSERT INTO orders (order_id, customer_id, order_date, total_amount)
+VALUES (1002, 2, '2025-06-24', 1499.00);
+![image](https://github.com/user-attachments/assets/a5846db9-9732-4f36-8f06-cae43555e278)
+
+# Use UPDATE and DELETE with WHERE
+UPDATE products SET stock_quantity = 120 WHERE product_id = 101;
+![image](https://github.com/user-attachments/assets/1f6bcac6-c886-48fb-84f1-0fcd3b24377f)
+
+# DELETE
+DELETE FROM reviews WHERE review_id = 1;
+![image](https://github.com/user-attachments/assets/64716728-a618-4d70-a317-4d84a83e519b)
+
 # Date:23/06/2025 Day: Monday TASK 1: Database Setup and Schema Design.
 Objective: Learn to create databases, tables, and define relationships.
 Tools:MySQL Workbench / pgAdmin / SQLiteStudio.
