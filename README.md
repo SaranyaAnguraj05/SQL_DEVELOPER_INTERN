@@ -1,3 +1,5 @@
+
+
 # SQL_DEVELOPER_INTERN
 the tasks  given daily will be uploaded in this git repository.
 # Date:25/06/2025 Day:Wednesday TASK-3: Writing Basic SELECT Queries
