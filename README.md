@@ -1,5 +1,54 @@
 # SQL_DEVELOPER_INTERN
 the tasks  given daily will be uploaded in this git repository.
+# Date:25/06/2025 Day:Wednesday TASK-3: Writing Basic SELECT Queries
+Objective:Extract data from one or more tables.
+Tools :DB Browser for SQLite / MySQL Workbench
+Deliverables:SQL script with SELECT, WHERE, ORDER BY, LIMIT
+ # 1. Use SELECT * and Specific Columns
+ SELECT * FROM products;
+ ![image](https://github.com/user-attachments/assets/98ad2f74-417c-48f3-b8e1-9b7aa62af653)
+SELECT name, price FROM products;
+![image](https://github.com/user-attachments/assets/4de0a216-2f6b-4355-91be-595857139820)
+SELECT name, email FROM customers;
+![image](https://github.com/user-attachments/assets/07666cef-8d7e-403c-abf8-fbf55f4a9cca)
+# 2. Apply WHERE, AND, OR, LIKE, BETWEEN
+# Select products where price is greater than 800:
+SELECT * FROM products
+WHERE price > 800;
+![image](https://github.com/user-attachments/assets/70d8bf28-db8f-4c21-bfc1-94a4c2801d89)
+# Find customers from Chennai using LIKE:
+SELECT * FROM customers
+WHERE address LIKE '%Chennai%';
+![image](https://github.com/user-attachments/assets/620e01ce-9c75-40a9-89e4-a2bab439e271)
+# Find orders placed between two dates:
+SELECT * FROM orders
+WHERE order_date BETWEEN '2025-06-01' AND '2025-06-30';
+![image](https://github.com/user-attachments/assets/b90e491e-ade6-4126-8276-75ec044229f9)
+
+# Find products in category "Electronics" OR price under 800:
+SELECT * FROM products
+WHERE category = 'Electronics' OR price < 800;
+![image](https://github.com/user-attachments/assets/24749e32-48a0-4a67-bbc3-78cd095d9317)
+
+# Get payments made via UPI and completed:
+SELECT * FROM payments
+WHERE method = 'UPI' AND status = 'Completed';
+![image](https://github.com/user-attachments/assets/a1544d05-e14d-4e2e-9124-80b125e41187)
+
+# 3. Sort with ORDER BY
+# Sort products by price (low to high):
+SELECT * FROM products
+ORDER BY price ASC;
+![image](https://github.com/user-attachments/assets/08d764d4-b320-4425-a97f-155f87c6864c)
+# Sort customers by name (Z to A):
+SELECT * FROM customers
+ORDER BY name DESC;
+![image](https://github.com/user-attachments/assets/31c95f3d-8e00-4dc0-bd60-eedc277a7372)
+# Sort orders by order date:
+SELECT * FROM orders
+ORDER BY order_date DESC;
+![image](https://github.com/user-attachments/assets/cb0f87bf-fb4e-4c17-855d-c8618b99c9b2)
+
 # Date:24/06/2025 Day:Tuesday TASK-2: Data Insertion and Handling Nulls
 Objective: Practice inserting, updating, and deleting data.
 Tools :DB Fiddle / SQLiteStudio
