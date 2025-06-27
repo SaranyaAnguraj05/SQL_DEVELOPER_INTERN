@@ -2,6 +2,39 @@
 
 # SQL_DEVELOPER_INTERN
 the tasks  given daily will be uploaded in this git repository.
+# Date:26/06/2025 Day:Friday TASK-4:Aggregate functions
+# SUM:
+SELECT SUM(total_amount) AS total_sales
+FROM orders;
+
+![image](https://github.com/user-attachments/assets/84b83ab3-dc36-4322-a77c-5e013f777762)
+
+# COUNT
+SELECT COUNT(*) AS total_customers
+FROM customers;
+![image](https://github.com/user-attachments/assets/3cd27c40-1aef-4f3b-9cb6-536a82725472)
+
+# GROUP BY
+SELECT category, COUNT(*) AS product_count
+FROM products
+GROUP BY category;
+
+![image](https://github.com/user-attachments/assets/f48c167c-364d-4ac5-a68d-8d4eab7b517d)
+
+# AVG:
+SELECT AVG(price) AS avg_price
+FROM products;
+
+![image](https://github.com/user-attachments/assets/7fca8748-1726-40c4-b707-ea2ee42cd362)
+
+# HAVING:
+SELECT customer_id, COUNT(*) AS order_count
+FROM orders
+GROUP BY customer_id
+HAVING COUNT(*) > 1;
+
+![image](https://github.com/user-attachments/assets/60889954-9c93-4204-b625-cdad9c8e0660)
+
 # Date:25/06/2025 Day:Wednesday TASK-3: Writing Basic SELECT Queries
 Objective:Extract data from one or more tables.
 Tools :DB Browser for SQLite / MySQL Workbench
