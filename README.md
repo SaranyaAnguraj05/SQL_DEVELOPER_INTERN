@@ -2,7 +2,104 @@
 
 # SQL_DEVELOPER_INTERN
 the tasks  given daily will be uploaded in this git repository.
-# Date:26/06/2025 Day:Friday TASK-4:Aggregate functions
+# Date:01/07/2025 Day:Friday TASK-6:Subqueries and Nested Queries
+#  1. Scalar Subqueries
+SELECT name, price
+FROM products
+WHERE price = (SELECT MAX(price) FROM products);
+![image](https://github.com/user-attachments/assets/ef308344-5f53-4968-9114-5b4cea5ec2da)
+
+SELECT name
+FROM customers
+WHERE customer_id = (
+    SELECT customer_id
+    FROM orders
+    ORDER BY order_date DESC
+    LIMIT 1
+);
+![image](https://github.com/user-attachments/assets/b195028c-b9dd-409a-a642-c07f0912bc26)
+
+
+# 2. Correlated Subqueries
+SELECT name, price
+FROM products p
+WHERE price > (
+    SELECT AVG(price)
+    FROM products
+);
+![image](https://github.com/user-attachments/assets/2eb57130-37c7-4e3f-95d4-b4b155fef34d)
+
+
+SELECT name
+FROM customers c
+WHERE (
+    SELECT COUNT(*)
+    FROM orders o
+    WHERE o.customer_id = c.customer_id
+) > 1;
+
+![image](https://github.com/user-attachments/assets/3f859afa-7914-4b41-9010-5acc61ba3ccd)
+
+#  3. Subqueries Inside IN, EXISTS, =
+SELECT name
+FROM customers
+WHERE customer_id IN (
+    SELECT DISTINCT customer_id
+    FROM reviews
+);
+![image](https://github.com/user-attachments/assets/d85f0bfe-e05e-4925-bd99-afec56e3cacc)
+
+SELECT name
+FROM customers c
+WHERE EXISTS (
+    SELECT 1
+    FROM orders o
+    WHERE o.customer_id = c.customer_id
+);
+![image](https://github.com/user-attachments/assets/3124e5a9-52fe-49ab-accc-6e0637e76e59)
+
+SELECT total_amount
+FROM orders
+WHERE order_id = (
+    SELECT MAX(order_id)
+    FROM orders
+);
+![image](https://github.com/user-attachments/assets/da70c097-5647-4460-b0e8-6e291150188b)
+
+# Date:30/06/2025 Day:Monday TASK-5:SQL Joins (Inner, Left, Right, Full)
+# INNER JOIN
+SELECT orders.order_id, customers.name, orders.total_amount
+FROM orders
+INNER JOIN customers ON orders.customer_id = customers.customer_id;
+![image](https://github.com/user-attachments/assets/d73f9408-32a0-43ca-9bbe-abc8a23580e0)
+
+# LEFT JOIN
+SELECT customers.name, orders.order_id, orders.total_amount
+FROM customers
+LEFT JOIN orders ON customers.customer_id = orders.customer_id;
+![image](https://github.com/user-attachments/assets/21ed984f-5dbc-49fa-9e74-367cb3e3b397)
+
+# RIGHT JOIN
+SELECT customers.name, orders.order_id, orders.total_amount
+FROM customers
+RIGHT JOIN orders ON customers.customer_id = orders.customer_id;
+
+![image](https://github.com/user-attachments/assets/dab3baea-1714-4680-845f-7c8a2bb2304e)
+
+# FULL JOIN
+SELECT customers.name, orders.order_id, orders.total_amount
+FROM customers
+LEFT JOIN orders ON customers.customer_id = orders.customer_id
+
+UNION
+
+SELECT customers.name, orders.order_id, orders.total_amount
+FROM customers
+RIGHT JOIN orders ON customers.customer_id = orders.customer_id;
+![image](https://github.com/user-attachments/assets/75ccf8ce-e4db-4f82-9544-9dbb574f17fa)
+
+
+# Date:27/06/2025 Day:Friday TASK-4:Aggregate functions
 # SUM:
 SELECT SUM(total_amount) AS total_sales
 FROM orders;
