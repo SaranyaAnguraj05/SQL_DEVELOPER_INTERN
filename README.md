@@ -2,6 +2,56 @@
 
 # SQL_DEVELOPER_INTERN
 the tasks  given daily will be uploaded in this git repository.
+# Date:03/07/2025 Day: Thursday TASK-7:Creating Views
+# 1. CREATE VIEW with Complex SELECT  View: order_summary_view
+CREATE VIEW order_summary_view AS
+SELECT 
+    o.order_id,
+    c.name AS customer_name,
+    o.order_date,
+    o.total_amount,
+    p.method AS payment_method,
+    p.status AS payment_status
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+JOIN payments p ON o.order_id = p.order_id;
+![image](https://github.com/user-attachments/assets/f8b411b6-0aa6-4e52-9ac5-ebe25b52bfc3)
+
+#  View: cart_details_view
+CREATE VIEW cart_details_view AS
+SELECT 
+    ct.cart_id,
+    c.name AS customer_name,
+    p.name AS product_name,
+    ct.quantity,
+    p.price,
+    (ct.quantity * p.price) AS total_price
+FROM cart ct
+JOIN customers c ON ct.customer_id = c.customer_id
+JOIN products p ON ct.product_id = p.product_id;
+![image](https://github.com/user-attachments/assets/b2effde2-3cc0-4214-8953-54cb0e5b3442)
+
+# View: product_review_view
+CREATE VIEW product_review_view AS
+SELECT 
+    p.product_id,
+    p.name AS product_name,
+    r.rating,
+    r.comment,
+    r.date,
+    c.name AS reviewer_name
+FROM reviews r
+JOIN products p ON r.product_id = p.product_id
+JOIN customers c ON r.customer_id = c.customer_id;
+![image](https://github.com/user-attachments/assets/3842bf87-c07f-4c7d-aa71-4d519b5bddfd)
+
+#  2. Use Views for Abstraction & Security
+CREATE A USER: 
+![image](https://github.com/user-attachments/assets/f57bcf39-e983-4738-8424-3be134b84de9)
+#  Grant Access Only to Specific View
+![image](https://github.com/user-attachments/assets/bdb40ff3-819d-4755-b3ff-666a78a570e0)
+
+
 # Date:01/07/2025 Day:Friday TASK-6:Subqueries and Nested Queries
 #  1. Scalar Subqueries
 SELECT name, price
